@@ -1,17 +1,316 @@
-html
-<! <!DOCTYPE DOCTYPE html html> >
-< <html html lang lang= =" "fr fr" "> >
-< <head head> >
-< <meta meta charset charset= =" "UTF-8 UTF-8" "> >
-< <meta meta name name= =" "viewport viewport" " content content= =" "width=device-width, initial-scale=1.0 width=device-width, initial-scale=1.0" "> >
-< <title title> >Atlas Risk Cover - Courtage d'Excellence Atlas Risk Cover - Courtage d'Excellence</ </title title> >
-< <script script crossorigin crossorigin src src= =" "https://unpkg.com/react@18/umd/react.production.min.js https://unpkg.com/react@18/umd/react.production.min.js" "> ></ </script script> >
-< <script script crossorigin crossorigin src src= =" "https://unpkg.com/react-dom@18/umd/react-dom.production.min.js https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" "> ></ </script script> >
-< <script script src src= =" "https://unpkg.com/@babel/standalone/babel.min.js https://unpkg.com/@babel/standalone/babel.min.js" "> ></ </script script> >
-< <script script src src= =" "https://cdn.tailwindcss.com https://cdn.tailwindcss.com" "> ></ </script script> >
-</ </head head> >
-< <body body> >
-< <div div id id= =" "root root" "> ></ </div div> >
-< <script script type type= =" "text/babel text/babel" " src src= =" "app.js app.js" "> ></ </script script> >
-</ </body body> >
-</ </html html> >
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Atlas Risk Cover - Courtage d'excellence pour la gestion des risques internationaux">
+    <title>Atlas Risk Cover - Courtage d'Excellence</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes pulse-slow {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.5; }
+        }
+        .animate-pulse-slow {
+            animation: pulse-slow 3s ease-in-out infinite;
+        }
+        @keyframes bounce-slow {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .animate-bounce-slow {
+            animation: bounce-slow 2s ease-in-out infinite;
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-900 text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 transition-all duration-500 bg-slate-950/90 backdrop-blur-xl border-b border-white/10" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 bg-gradient-to-br from-amber-400 to-amber-600 rounded-lg flex items-center justify-center shadow-lg shadow-amber-500/20">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-slate-950"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>
+                </div>
+                <div>
+                    <div class="text-xl font-light tracking-wider">ATLAS</div>
+                    <div class="text-xs text-amber-400 font-light tracking-widest">RISK COVER</div>
+                </div>
+            </div>
+            
+            <button onclick="toggleMenu()" class="lg:hidden">
+                <svg id="menuIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+            </button>
+
+            <div class="hidden lg:flex items-center space-x-8">
+                <a href="#services" class="text-sm tracking-wide hover:text-amber-400 transition-colors duration-300">Services</a>
+                <a href="#expertise" class="text-sm tracking-wide hover:text-amber-400 transition-colors duration-300">Expertise</a>
+                <a href="#contact" class="text-sm tracking-wide hover:text-amber-400 transition-colors duration-300">Contact</a>
+                <button class="px-6 py-2.5 bg-gradient-to-r from-amber-500 to-amber-600 rounded-lg text-slate-950 font-medium text-sm hover:shadow-lg hover:shadow-amber-500/30 transition-all duration-300 hover:scale-105">
+                    Demander un devis
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-slate-950/95 backdrop-blur-xl border-t border-white/10">
+            <div class="px-6 py-4 space-y-4">
+                <a href="#services" class="block text-sm tracking-wide hover:text-amber-400 transition-colors">Services</a>
+                <a href="#expertise" class="block text-sm tracking-wide hover:text-amber-400 transition-colors">Expertise</a>
+                <a href="#contact" class="block text-sm tracking-wide hover:text-amber-400 transition-colors">Contact</a>
+                <button class="w-full px-6 py-2.5 bg-gradient-to-r from-amber-500 to-amber-600 rounded-lg text-slate-950 font-medium text-sm">
+                    Demander un devis
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-radial from-blue-900/20 via-transparent to-transparent"></div>
+        <div class="absolute inset-0">
+            <div class="absolute top-20 left-10 w-72 h-72 bg-amber-500/10 rounded-full blur-3xl animate-pulse-slow"></div>
+            <div class="absolute bottom-20 right-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse-slow" style="animation-delay: 1s;"></div>
+        </div>
+
+        <div class="relative max-w-6xl mx-auto px-6 text-center mt-20">
+            <div class="inline-block mb-6 px-4 py-2 glass rounded-full">
+                <span class="text-xs tracking-widest text-amber-400">COURTAGE D'EXCELLENCE</span>
+            </div>
+            
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-extralight mb-8 leading-tight">
+                L'Assurance
+                <span class="block mt-2 bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 bg-clip-text text-transparent font-light">
+                    Sans Frontières
+                </span>
+            </h1>
+            
+            <p class="text-lg md:text-xl text-slate-300 font-light max-w-3xl mx-auto mb-12 leading-relaxed">
+                Votre partenaire d'élite pour la gestion des risques internationaux. 
+                Une expertise raffinée au service de votre mobilité mondiale.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <button class="group px-8 py-4 bg-gradient-to-r from-amber-500 to-amber-600 rounded-lg text-slate-950 font-medium hover:shadow-2xl hover:shadow-amber-500/30 transition-all duration-500 hover:scale-105 flex items-center">
+                    Découvrir nos services
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2 group-hover:translate-x-1 transition-transform"><path d="m9 18 6-6-6-6"/></svg>
+                </button>
+                <button class="px-8 py-4 glass rounded-lg hover:bg-white/10 transition-all duration-300 hover:scale-105">
+                    Nous contacter
+                </button>
+            </div>
+        </div>
+
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2">
+            <div class="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center pt-2">
+                <div class="w-1 h-3 bg-amber-400 rounded-full animate-bounce-slow"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section id="expertise" class="py-32 relative">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <div class="inline-block mb-6 px-4 py-2 glass rounded-full">
+                        <span class="text-xs tracking-widest text-amber-400">NOTRE PHILOSOPHIE</span>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-light mb-8 leading-tight">
+                        L'Humain au Centre
+                        <span class="block text-amber-400 mt-2">de l'Excellence</span>
+                    </h2>
+                    <p class="text-lg text-slate-300 font-light leading-relaxed mb-6">
+                        Atlas Risk Cover est né de l'alliance stratégique de deux professionnels d'exception, 
+                        dont les compétences complémentaires forment une expertise unique sur le marché.
+                    </p>
+                    <p class="text-lg text-slate-300 font-light leading-relaxed">
+                        Nous avons fait le choix délibéré de nous concentrer sur les acteurs de la mobilité internationale, 
+                        un segment premium souvent confronté à des défis complexes nécessitant des solutions sur-mesure.
+                    </p>
+                </div>
+
+                <div class="relative">
+                    <div class="glass rounded-2xl p-8 shadow-2xl">
+                        <h3 class="text-2xl font-light mb-6 text-amber-400">Notre Engagement</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <div class="w-1.5 h-1.5 bg-amber-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                                <span class="text-slate-300 font-light">Évaluation précise de vos expositions</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-1.5 h-1.5 bg-amber-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                                <span class="text-slate-300 font-light">Diagnostic clair et transparent</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-1.5 h-1.5 bg-amber-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                                <span class="text-slate-300 font-light">Solutions évolutives et intelligentes</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-1.5 h-1.5 bg-amber-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                                <span class="text-slate-300 font-light">Relation de confiance sur le long terme</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-32 relative">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-blue-950/20 to-transparent"></div>
+        <div class="max-w-7xl mx-auto px-6 relative">
+            <div class="text-center mb-20">
+                <div class="inline-block mb-6 px-4 py-2 glass rounded-full">
+                    <span class="text-xs tracking-widest text-amber-400">NOS SERVICES</span>
+                </div>
+                <h2 class="text-4xl md:text-5xl font-light mb-6">Excellence & Expertise</h2>
+                <p class="text-xl text-slate-300 font-light max-w-2xl mx-auto">
+                    Des solutions premium adaptées à vos enjeux internationaux
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Service 1 -->
+                <div class="group relative glass rounded-2xl p-8 hover:border-amber-400/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-amber-500/10">
+                    <div class="w-16 h-16 bg-gradient-to-br from-amber-500 to-amber-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 shadow-lg shadow-amber-500/20">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-slate-950"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                    </div>
+                    <h3 class="text-2xl font-light mb-4 group-hover:text-amber-400 transition-colors">
+                        Mobilité Internationale
+                    </h3>
+                    <p class="text-slate-300 font-light leading-relaxed">
+                        Solutions sur-mesure pour les professionnels en déplacement à l'international
+                    </p>
+                    <div class="mt-6 flex items-center text-amber-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        <span class="text-sm font-light mr-2">En savoir plus</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-1 transition-transform"><path d="m9 18 6-6-6-6"/></svg>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="group relative glass rounded-2xl p-8 hover:border-amber-400/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-amber-500/10">
+                    <div class="w-16 h-16 bg-gradient-to-br from-amber-500 to-amber-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 shadow-lg shadow-amber-500/20">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-slate-950"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>
+                    </div>
+                    <h3 class="text-2xl font-light mb-4 group-hover:text-amber-400 transition-colors">
+                        Gestion des Risques
+                    </h3>
+                    <p class="text-slate-300 font-light leading-relaxed">
+                        Évaluation précise et diagnostic approfondi de vos expositions
+                    </p>
+                    <div class="mt-6 flex items-center text-amber-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        <span class="text-sm font-light mr-2">En savoir plus</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-1 transition-transform"><path d="m9 18 6-6-6-6"/></svg>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="group relative glass rounded-2xl p-8 hover:border-amber-400/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-amber-500/10">
+                    <div class="w-16 h-16 bg-gradient-to-br from-amber-500 to-amber-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 shadow-lg shadow-amber-500/20">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-slate-950"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <h3 class="text-2xl font-light mb-4 group-hover:text-amber-400 transition-colors">
+                        Accompagnement Personnalisé
+                    </h3>
+                    <p class="text-slate-300 font-light leading-relaxed">
+                        Relation de confiance et suivi évolutif de vos besoins
+                    </p>
+                    <div class="mt-6 flex items-center text-amber-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        <span class="text-sm font-light mr-2">En savoir plus</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-1 transition-transform"><path d="m9 18 6-6-6-6"/></svg>
+                    </div>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="group relative glass rounded-2xl p-8 hover:border-amber-400/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-amber-500/10">
+                    <div class="w-16 h-16 bg-gradient-to-br from-amber-500 to-amber-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 shadow-lg shadow-amber-500/20">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-slate-950"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+                    </div>
+                    <h3 class="text-2xl font-light mb-4 group-hover:text-amber-400 transition-colors">
+                        Excellence & Expertise
+                    </h3>
+                    <p class="text-slate-300 font-light leading-relaxed">
+                        Alliance de compétences complémentaires au service de votre protection
+                    </p>
+                    <div class="mt-6 flex items-center text-amber-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        <span class="text-sm font-light mr-2">En savoir plus</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-1 transition-transform"><path d="m9 18 6-6-6-6"/></svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contact" class="py-32 relative">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="relative glass rounded-3xl p-12 lg:p-16 overflow-hidden border border-amber-400/30">
+                <div class="absolute top-0 right-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl"></div>
+                <div class="relative text-center">
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-light mb-6">
+                        Prêt à Sécuriser
+                        <span class="block text-amber-400 mt-2">Votre Avenir International ?</span>
+                    </h2>
+                    <p class="text-lg md:text-xl text-slate-300 font-light mb-10 max-w-2xl mx-auto">
+                        Discutons de vos besoins spécifiques et construisons ensemble une solution d'exception.
+                    </p>
+                    <button class="px-10 py-5 bg-gradient-to-r from-amber-500 to-amber-600 rounded-xl text-slate-950 font-medium text-lg hover:shadow-2xl hover:shadow-amber-500/40 transition-all duration-500 hover:scale-105">
+                        Planifier un entretien privé
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10 py-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col lg:flex-row justify-between items-center">
+                <div class="flex items-center space-x-3 mb-6 lg:mb-0">
+                    <div class="w-10 h-10 bg-gradient-to-br from-amber-400 to-amber-600 rounded-lg flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-slate-950"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>
+                    </div>
+                    <div>
+                        <div class="text-lg font-light tracking-wider">ATLAS RISK COVER</div>
+                        <div class="text-xs text-slate-400 font-light">Anywhere, Any way.</div>
+                    </div>
+                </div>
+                <div class="text-sm text-slate-400 font-light">
+                    © 2025 Atlas Risk Cover. Courtage d'excellence.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    // Close mobile menu if open
+                    document.getElementById('mobileMenu').classList.add('hidden');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
