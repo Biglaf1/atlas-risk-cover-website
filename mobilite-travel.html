@@ -1,0 +1,228 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[NOM DE LA PAGE] - Atlas Risk Cover</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        .dropdown {
+            display: none;
+        }
+        .dropdown-parent:hover .dropdown {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-900 text-white">
+
+    <!-- Navigation (IDENTIQUE SUR TOUTES LES PAGES) -->
+    <nav class="fixed top-0 w-full z-50 bg-slate-950/90 backdrop-blur-xl border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-3">
+                <div class="w-10 h-10 bg-gradient-to-br from-amber-400 to-amber-600 rounded-lg flex items-center justify-center shadow-lg shadow-amber-500/20">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>
+                </div>
+                <div>
+                    <div class="text-xl font-light tracking-wider">ATLAS</div>
+                    <div class="text-xs text-amber-400 font-light tracking-widest">RISK COVER</div>
+                </div>
+            </a>
+
+            <div class="hidden lg:flex items-center space-x-6">
+                <a href="index.html" class="text-sm tracking-wide hover:text-amber-400 transition-colors">Accueil</a>
+                
+                <div class="relative dropdown-parent">
+                    <button class="text-sm tracking-wide hover:text-amber-400 transition-colors flex items-center">
+                        Solutions
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="ml-1"><path d="m6 9 6 6 6-6"/></svg>
+                    </button>
+                    <div class="dropdown absolute top-full left-0 mt-2 w-64 glass rounded-xl shadow-2xl py-2">
+                        <div class="px-4 py-2 text-xs text-amber-400 font-semibold">PROFESSIONNELS</div>
+                        <a href="mobilite-travel.html" class="block px-4 py-2 text-sm hover:bg-white/10">Mobilité & Travel Risk</a>
+                        <a href="rc-professionnelle.html" class="block px-4 py-2 text-sm hover:bg-white/10">Responsabilité Professionnelle</a>
+                        <a href="cyber-assurance.html" class="block px-4 py-2 text-sm hover:bg-white/10">Cyber-Assurance</a>
+                        <a href="evenementiel.html" class="block px-4 py-2 text-sm hover:bg-white/10">Événementiel</a>
+                        <a href="kidnapping-ransom.html" class="block px-4 py-2 text-sm hover:bg-white/10">Kidnapping & Ransom</a>
+                        <a href="rc-exploitation.html" class="block px-4 py-2 text-sm hover:bg-white/10">RC Exploitation</a>
+                        <a href="terrorisme-risques.html" class="block px-4 py-2 text-sm hover:bg-white/10">Terrorisme & Risques</a>
+                        <a href="rc-dirigeants.html" class="block px-4 py-2 text-sm hover:bg-white/10">RC Dirigeants (D&O)</a>
+                        <a href="risques-politiques.html" class="block px-4 py-2 text-sm hover:bg-white/10">Risques Politiques</a>
+                        <a href="catastrophes.html" class="block px-4 py-2 text-sm hover:bg-white/10">Catastrophes Naturelles</a>
+                        <div class="border-t border-white/10 my-2"></div>
+                        <div class="px-4 py-2 text-xs text-amber-400 font-semibold">PARTICULIERS</div>
+                        <a href="sante-internationale.html" class="block px-4 py-2 text-sm hover:bg-white/10">Santé Internationale</a>
+                        <a href="voyage-international.html" class="block px-4 py-2 text-sm hover:bg-white/10">Voyage International</a>
+                        <a href="pvt-longue-duree.html" class="block px-4 py-2 text-sm hover:bg-white/10">PVT & Longue Durée</a>
+                    </div>
+                </div>
+
+                <div class="relative dropdown-parent">
+                    <button class="text-sm tracking-wide hover:text-amber-400 transition-colors flex items-center">
+                        Expertise
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="ml-1"><path d="m6 9 6 6 6-6"/></svg>
+                    </button>
+                    <div class="dropdown absolute top-full left-0 mt-2 w-56 glass rounded-xl shadow-2xl py-2">
+                        <a href="notre-approche.html" class="block px-4 py-2 text-sm hover:bg-white/10">Notre Approche</a>
+                        <a href="secteurs-activite.html" class="block px-4 py-2 text-sm hover:bg-white/10">Secteurs d'Activité</a>
+                        <a href="zones-geographiques.html" class="block px-4 py-2 text-sm hover:bg-white/10">Zones Géographiques</a>
+                    </div>
+                </div>
+
+                <div class="relative dropdown-parent">
+                    <button class="text-sm tracking-wide hover:text-amber-400 transition-colors flex items-center">
+                        À Propos
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="ml-1"><path d="m6 9 6 6 6-6"/></svg>
+                    </button>
+                    <div class="dropdown absolute top-full left-0 mt-2 w-48 glass rounded-xl shadow-2xl py-2">
+                        <a href="notre-histoire.html" class="block px-4 py-2 text-sm hover:bg-white/10">Notre Histoire</a>
+                        <a href="notre-equipe.html" class="block px-4 py-2 text-sm hover:bg-white/10">Notre Équipe</a>
+                        <a href="nos-valeurs.html" class="block px-4 py-2 text-sm hover:bg-white/10">Nos Valeurs</a>
+                    </div>
+                </div>
+
+                <a href="contact.html" class="text-sm tracking-wide hover:text-amber-400 transition-colors">Contact</a>
+                <a href="contact.html" class="px-6 py-2.5 bg-gradient-to-r from-amber-500 to-amber-600 rounded-lg text-slate-950 font-medium text-sm hover:shadow-lg hover:shadow-amber-500/30 transition-all hover:scale-105">
+                    Demander un devis
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section de la page -->
+    <section class="pt-32 pb-20 relative">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <div class="inline-block mb-6 px-4 py-2 glass rounded-full">
+                <span class="text-xs tracking-widest text-amber-400">[CATÉGORIE - EX: PROFESSIONNELS]</span>
+            </div>
+            
+            <h1 class="text-5xl md:text-6xl font-extralight mb-6 leading-tight">
+                [Titre de la Page]
+                <span class="block mt-2 text-amber-400 font-light">[Sous-titre si nécessaire]</span>
+            </h1>
+            
+            <p class="text-xl text-slate-300 font-light max-w-2xl mx-auto">
+                [Description courte et percutante de cette solution]
+            </p>
+        </div>
+    </section>
+
+    <!-- Section Contenu Principal -->
+    <section class="py-20 relative">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-16 mb-20">
+                <div>
+                    <h2 class="text-3xl font-light mb-6 text-amber-400">
+                        [Titre Section 1]
+                    </h2>
+                    <p class="text-lg text-slate-300 font-light leading-relaxed mb-6">
+                        [Votre texte explicatif ici. Décrivez en détail cette solution, ses avantages, pourquoi elle est importante...]
+                    </p>
+                    <p class="text-lg text-slate-300 font-light leading-relaxed">
+                        [Suite du texte explicatif...]
+                    </p>
+                </div>
+
+                <div class="glass rounded-2xl p-8">
+                    <h3 class="text-2xl font-light mb-6 text-amber-400">[Titre Encadré]</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <div class="w-1.5 h-1.5 bg-amber-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                            <span class="text-slate-300 font-light">[Point important 1]</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="w-1.5 h-1.5 bg-amber-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                            <span class="text-slate-300 font-light">[Point important 2]</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="w-1.5 h-1.5 bg-amber-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                            <span class="text-slate-300 font-light">[Point important 3]</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="w-1.5 h-1.5 bg-amber-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                            <span class="text-slate-300 font-light">[Point important 4]</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Section Caractéristiques -->
+            <div class="glass rounded-2xl p-12 mb-20">
+                <h2 class="text-3xl font-light mb-12 text-center text-amber-400">
+                    [Nos Garanties / Nos Services / Nos Avantages]
+                </h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div>
+                        <div class="w-12 h-12 bg-amber-500/20 rounded-lg flex items-center justify-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-amber-400"><path d="M20 6 9 17l-5-5"/></svg>
+                        </div>
+                        <h3 class="text-lg font-light mb-2 text-white">[Caractéristique 1]</h3>
+                        <p class="text-slate-400 text-sm">[Description brève]</p>
+                    </div>
+                    <div>
+                        <div class="w-12 h-12 bg-amber-500/20 rounded-lg flex items-center justify-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-amber-400"><path d="M20 6 9 17l-5-5"/></svg>
+                        </div>
+                        <h3 class="text-lg font-light mb-2 text-white">[Caractéristique 2]</h3>
+                        <p class="text-slate-400 text-sm">[Description brève]</p>
+                    </div>
+                    <div>
+                        <div class="w-12 h-12 bg-amber-500/20 rounded-lg flex items-center justify-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-amber-400"><path d="M20 6 9 17l-5-5"/></svg>
+                        </div>
+                        <h3 class="text-lg font-light mb-2 text-white">[Caractéristique 3]</h3>
+                        <p class="text-slate-400 text-sm">[Description brève]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 relative">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="glass rounded-3xl p-12 text-center border border-amber-400/30">
+                <h2 class="text-3xl md:text-4xl font-light mb-6">
+                    Besoin d'une solution sur-mesure ?
+                </h2>
+                <p class="text-lg text-slate-300 font-light mb-8 max-w-2xl mx-auto">
+                    Nos experts analysent votre situation et vous proposent une couverture adaptée à vos besoins spécifiques.
+                </p>
+                <a href="contact.html" class="inline-block px-10 py-4 bg-gradient-to-r from-amber-500 to-amber-600 rounded-xl text-slate-950 font-medium hover:shadow-2xl hover:shadow-amber-500/40 transition-all hover:scale-105">
+                    Demander un devis personnalisé
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (IDENTIQUE SUR TOUTES LES PAGES) -->
+    <footer class="border-t border-white/10 py-12 mt-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col lg:flex-row justify-between items-center">
+                <div class="flex items-center space-x-3 mb-6 lg:mb-0">
+                    <div class="w-10 h-10 bg-gradient-to-br from-amber-400 to-amber-600 rounded-lg flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>
+                    </div>
+                    <div>
+                        <div class="text-lg font-light tracking-wider">ATLAS RISK COVER</div>
+                        <div class="text-xs text-slate-400 font-light">Anywhere, Any way.</div>
+                    </div>
+                </div>
+                <div class="text-sm text-slate-400 font-light">
+                    © 2025 Atlas Risk Cover. Courtage d'excellence.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
